@@ -1,0 +1,24 @@
+[project]
+name = "Poids"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    { name = "Luc Bougé", email = "Luc.Bouge@ens-rennes.fr" },
+]
+dependencies = [
+    "pandas>=2.2.2",
+    "matplotlib>=3.9.0",
+    "unidecode>=1.3.8",
+    "typeguard>=4.3.0",
+    "openpyxl>=3.1.4",
+    "Python-Libraries @ file:///Users/bouge/GIT/Github_Luc/Python_Libraries",
+]
+requires-python = "==3.12.*"
+readme = "README.md"
+license = { text = "MIT" }
+
+[tool.pdm]
+distribution = false
+
+[tool.pdm.scripts]
+make = "src/poids.py"
