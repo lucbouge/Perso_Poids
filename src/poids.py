@@ -5,18 +5,14 @@ from typing import NamedTuple, Dict, Sequence, Any
 from pathlib import Path
 from unidecode import unidecode
 import pprint as pp
+
+
 from typeguard import typechecked
-import gzip
-import pandas as pd
 import matplotlib.pyplot as plt
-from matplotlib.axes import Axes
 from matplotlib.figure import Figure
 import pandas as pd
 from pandas.core.indexes.datetimes import DatetimeIndex
 
-
-# from python_libraries.Run import run
-# from python_libraries.Secret import get_secret
 from python_libraries.File import (
     dump_data_to_file,
     load_file_to_data,
@@ -24,10 +20,13 @@ from python_libraries.File import (
     load_xlsx_to_df,
 )
 
+################################################################################
 
 DATA_FILE = Path("Data", "poids.xlsx")
 ALPHA = 0.3
 ROLLING_SCOPE = 7
+
+################################################################################
 
 
 def main():
@@ -98,6 +97,9 @@ def make_fig(*, data: pd.Series) -> Figure:
     return fig
 
 
+################################################################################
+
+
 def make_df() -> pd.DataFrame:
     df = pd.read_excel(
         DATA_FILE,
@@ -113,5 +115,7 @@ def make_df() -> pd.DataFrame:
     dump_df_to_xlsx(df, dataname=dataname)
     return df
 
+
+################################################################################
 
 main()
