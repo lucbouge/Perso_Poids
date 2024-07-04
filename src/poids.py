@@ -62,9 +62,10 @@ def make_complete_time_series(*, data: pd.Series) -> pd.Series:
     max_date = data.index.max()
     print(f"{min_date = }, {max_date = }")
     time_range = pd.date_range(start=min_date, end=max_date, freq="D", normalize=True)
-    new_data = pd.Series(index=time_range, data=None)
-    new_data[data.index] = data
-    return new_data
+    completed_data = pd.Series(index=time_range, data=None)
+    assert set(data.index) <= set(completed_data.index)
+    completed_data[data.index] = data
+    return completed_data
 
 
 ################################################################################
