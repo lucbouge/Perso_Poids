@@ -3,7 +3,6 @@ from datetime import datetime, timedelta, date
 import re
 from typing import NamedTuple, Dict, Sequence, Any
 from pathlib import Path
-from unidecode import unidecode
 import pprint as pp
 
 
